@@ -6974,7 +6974,7 @@ blockquote.vs-quote cite:before {
 }
 
 .media-slider .slick-current .media-shape {
-  --shape-bg: #84452a;
+  --shape-bg: #5e0237ff;
   --border-color: rgba(253, 250, 249, 0.30);
   transition-delay: 0.2s;
 }
@@ -7400,7 +7400,7 @@ blockquote.vs-quote cite:before {
     --shape-path: none;
   }
   .media-style2 .media-shape {
-    --shape-bg: #84452a;
+    --shape-bg: #5e0237ff;
     --border-color: rgba(253, 250, 249, 0.30);
   }
   .media-style2 .media-title,
