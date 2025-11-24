@@ -8434,7 +8434,7 @@ blockquote.vs-quote cite:before {
 }
 /*------------------- 4.13. Testimonial  -------------------*/
 .testi-style1 {
-  background-color: var(--theme-color);
+  background-color: #E3227D;
   --body-color: #fff;
   --title-color: #fff;
   padding: 80px 120px 80px 70px;
