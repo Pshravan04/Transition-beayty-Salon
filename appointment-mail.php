@@ -20,7 +20,7 @@
 
         // Set the recipient email address.
         // FIXME: Update this to your desired email address.
-        $recipient = "info@vecuro.com";
+        $recipient = "shravanphuatnr@gmail.com";
 
         // Set the email subject.
         $subject = "New contact from $subject";
@@ -33,7 +33,8 @@
         $email_content .= "Service Date:\n$date\n";
 
         // Build the email headers.
-        $email_headers = "From: $name <$email>";
+       $email_headers = "From: no-reply@yourdomain.com\r\n";
+$email_headers .= "Reply-To: $name <$email>\r\n";
 
         // Send the email.
         if (mail($recipient, $subject, $email_content, $email_headers)) {

@@ -889,3 +889,58 @@
   
 
 })(jQuery);
+
+
+if (jQuery('form.kdarts-contact-form').length) {
+		jQuery('form.kdarts-contact-form').each(function() {
+			let $this = jQuery(this),
+				$response = $this.find('.kdarts-contact-form__response'),
+				formData;
+			
+			$this.submit(function(e) {
+				e.preventDefault();
+				formData = jQuery(this).serialize();
+				jQuery.ajax({
+					type: 'POST',
+					url: $this.attr('action'),
+					data: formData
+				})
+				.done(function(response) {
+					$response.empty().removeClass('alert-danger').addClass('alert-success');
+					$response.html('<span>' + response + '</span>');
+					setTimeout(function () {
+						//$response.find('span').fadeOut();
+					}, 2000);
+        			$this.find('input:not([type="submit"]), textarea').val('');
+				})
+				.fail(function(data) {
+					$response.empty().removeClass('alert-success').addClass('alert-danger');
+					$response.html('<span>' + data.responseText) + '</span>';
+					setTimeout(function () {
+						//$response.find('span').fadeOut();
+					}, 2000);
+				});
+			});
+		});
+	}
+
+
+  document.querySelector(".kdarts-contact-form").addEventListener("submit", function(e) {
+    e.preventDefault();
+
+    // Get input values
+    const name = document.getElementById("name").value.trim();
+    const email = document.getElementById("email").value.trim();
+    const phone = document.getElementById("phone").value.trim();
+    const message = document.getElementById("").value.trim();
+
+    // Your WhatsApp number (without + or spaces, e.g., 91XXXXXXXXXX for India)
+    const whatsappNumber = "918850746549"; // 🔁 Replace with your number
+
+    // Create WhatsApp message
+    const whatsappMessage = `Hello, my name is ${name}. My email is ${email}, phone: ${phone}. Message: ${message}`;
+
+    // Encode and redirect
+    const url = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(whatsappMessage)}`;
+    window.open(url, "_blank");
+  });
